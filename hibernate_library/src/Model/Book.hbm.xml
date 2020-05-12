@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 12, 2020 5:16:12 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Book" table="book" catalog="hiberproject" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="bookcategory" class="Model.Bookcategory" fetch="select">
+            <column name="Category" not-null="true" />
+        </many-to-one>
+        <property name="title" type="string">
+            <column name="Title" length="100" not-null="true" />
+        </property>
+        <property name="publishingHouse" type="string">
+            <column name="PublishingHouse" length="100" not-null="true" />
+        </property>
+        <property name="publicationDate" type="date">
+            <column name="PublicationDate" length="10" not-null="true" />
+        </property>
+        <property name="author" type="string">
+            <column name="Author" length="100" not-null="true" />
+        </property>
+        <property name="pages" type="int">
+            <column name="Pages" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
